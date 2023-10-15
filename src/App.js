@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import Profile from './components/profile';
+import Activities from './components/activities';
+import { useState } from 'react';
 
 function App() {
+  const [activeTimeframe, setActiveTimeframe] = useState('weekly');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="flex flex-col w-full my-20 mx-6 gap-[1.875rem] md:flex-row md:w-auto md:m-0">
+        <Profile activeTimeframe={activeTimeframe} setActiveTimeframe={setActiveTimeframe}/>
+        <Activities activeTimeframe={activeTimeframe}/>
+      </div>
     </div>
   );
 }
